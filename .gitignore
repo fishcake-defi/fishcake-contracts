@@ -1,6 +1,9 @@
 # Node
 node_modules/
 
+#yarn
+yarn-error.log
+
 # Hardhat
 cache/
 artifacts/
