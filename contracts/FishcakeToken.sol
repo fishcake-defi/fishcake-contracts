@@ -2,10 +2,12 @@
 
 pragma solidity 0.6.12;
 
-import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 
 // FishcakeToken with Governance.
-contract FishcakeToken is BEP20("FishcakeToken", "FISHCAKE") {
+contract FishcakeToken is ERC20("FishcakeToken", "FISHCAKE"), Ownable {
     /// @notice Creates `_amount` token to `_to`. Must only be called by the owner (MasterChef).
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
@@ -34,11 +36,11 @@ contract FishcakeToken is BEP20("FishcakeToken", "FISHCAKE") {
     mapping (address => uint32) public numCheckpoints;
 
     /// @notice The EIP-712 typehash for the contract's domain
-    // solhint-disable-next-line
+    //solhint-disable-next-line
     bytes32 public constant DOMAIN_TYPEHASH = keccak256("EIP712Domain(string name,uint256 chainId,address verifyingContract)");
 
     /// @notice The EIP-712 typehash for the delegation struct used by the contract
-    // solhint-disable-next-line
+    //solhint-disable-next-line
     bytes32 public constant DELEGATION_TYPEHASH = keccak256("Delegation(address delegatee,uint256 nonce,uint256 expiry)");
 
     /// @notice A record of states for signing / validating signatures
