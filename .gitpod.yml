@@ -1,0 +1,17 @@
+tasks:
+  - name: App
+    init: yarn
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 8545
+    onOpen: ignore
+github:
+  prebuilds:
+    pullRequestsFromForks: true
+    addComment: true
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - juanblanco.solidity
