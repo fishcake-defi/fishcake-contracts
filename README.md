@@ -1,4 +1,4 @@
-# HardHat Foundation
+# Fishcake Contracts
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -12,10 +12,6 @@ cp .env.example .env
 
 ```sh
 yarn test
-```
-
-```sh
-yarn test test/Greeter.ts
 ```
 
 ## Coverage
