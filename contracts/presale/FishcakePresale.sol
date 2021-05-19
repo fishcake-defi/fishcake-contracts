@@ -183,11 +183,13 @@ contract FishcakePresale is IFishcakePresale, ReentrancyGuard {
         request.token
       );
     }
+
     emit Create(auctionCount, request.token);
   }
 
   function archive(uint256 id) external nonReentrant {
     AuctionInfo memory auction = auctions[id];
+
     require(!auction.archived, "!archived");
     require(now >= auction.deadline, "!deadline");
 
@@ -218,6 +220,7 @@ contract FishcakePresale is IFishcakePresale, ReentrancyGuard {
         auction.engaged
       );
     }
+
     emit Archive(id, auction.token, totalEngaged);
   }
 
@@ -225,6 +228,7 @@ contract FishcakePresale is IFishcakePresale, ReentrancyGuard {
 
   function engage(uint256 id) external payable {
     AuctionInfo memory auction = auctions[id];
+
     require(!auction.archived, "!archived");
     require(now < auction.deadline, "!deadline");
 
@@ -249,11 +253,13 @@ contract FishcakePresale is IFishcakePresale, ReentrancyGuard {
         msg.value
       );
     }
+
     emit Engage(id, msg.sender, msg.value);
   }
 
   function claim(uint256 id) external nonReentrant {
     AuctionInfo memory auction = auctions[id];
+
     require(auction.archived, "!archived");
     require(now >= auction.deadline, "!deadline");
 
