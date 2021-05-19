@@ -1,7 +1,8 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { SignerWithAddress } from "hardhat-deploy-ethers/dist/src/signer-with-address";
+
 import { FishcakeToken, FishcakeToken__factory } from "../typechain";
+import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 
 describe("FishcakeToken", () => {
   let fishcake: FishcakeToken;
