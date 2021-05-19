@@ -97,7 +97,7 @@ const config: HardhatUserConfig = {
       tags: ["staging"],
     },
     moonbase: {
-      url: 'https://rpc.testnet.moonbeam.network',
+      url: "https://rpc.testnet.moonbeam.network",
       accounts,
       chainId: 1287,
       live: true,
@@ -105,7 +105,7 @@ const config: HardhatUserConfig = {
       tags: ["staging"],
     },
     arbitrum: {
-      url: 'https://kovan3.arbitrum.io/rpc',
+      url: "https://kovan3.arbitrum.io/rpc",
       accounts,
       chainId: 79377087078960,
       live: true,
@@ -155,7 +155,7 @@ const config: HardhatUserConfig = {
       live: true,
       saveDeployments: true,
       tags: ["staging"],
-    }
+    },
   },
   preprocess: {
     eachLine: removeConsoleLog(
@@ -172,10 +172,10 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  tenderly: {
-    project: process.env.TENDERLY_PROJECT,
-    username: process.env.TENDERLY_USERNAME,
-  },
+  // tenderly: {
+  //   project: process.env.TENDERLY_PROJECT,
+  //   username: process.env.TENDERLY_USERNAME,
+  // },
   watcher: {
     compile: {
       tasks: ["compile"],
